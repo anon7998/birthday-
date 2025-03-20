@@ -1,0 +1,117 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    overflow: hidden;
+    position: relative; /* Ensure layering works */
+
+    /* Background Image */
+    background: url("https://scontent.fvns5-1.fna.fbcdn.net/v/t1.15752-9/484508301_1152060686702423_4528045091797156603_n.png?stp=dst-png_p480x480&_nc_cat=105&ccb=1-7&_nc_sid=0024fc&_nc_ohc=oCXlF-lrIXYQ7kNvgF9xIid&_nc_oc=Adku0JvMV2Pnb9nXIxoga_9cxS065Pkfnz01Jg0eEQxtmn24znLwj7rBam6-QtBRiX8&_nc_ad=z-m&_nc_cid=0&_nc_zt=23&_nc_ht=scontent.fvns5-1.fna&oh=03_Q7cD1wEuYbF987BUtqjTP3kZs0yi7EGPR1v_5zSzDT9GvfUHIw&oe=6803C01F") no-repeat center center;
+    background-size: contain;
+}
+
+/* Background Blur Effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(165, 23, 149); /* Default background */
+    backdrop-filter: blur(1000000px); /* Keep blur */
+    z-index: -1;
+    transition: background 1s ease-in-out;
+}
+
+body.bg-reveal::before {
+    background: inherit; /* Reset to the original background */
+    backdrop-filter: none; /* Remove blur */
+}
+
+
+
+/* Birthday Message Container */
+.container {
+    background: rgba(159, 82, 82, 0.245);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.953);
+    backdrop-filter: blur(10px);
+}
+
+/* Heading & Message */
+h1, h2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    color: rgb(11, 11, 11);
+    animation: fadeIn 2s ease-in-out;
+}
+
+p {
+    font-size: 1.5rem;
+    color: rgb(30, 29, 29);
+    margin-top: 10px;
+}
+
+/* Button */
+#start-btn {
+    background: #b4566e;
+    color: rgb(255, 255, 255);
+    border: none;
+    padding: 15px 30px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+#start-btn:hover {
+    background: #f50057;
+}
+
+/* Photo Gallery */
+.photo-gallery {
+    width: 2px;  /* Adjust as needed */
+    height: 2%;
+    border-radius: 10px;
+    object-fit: contain;
+    transition: 0.4s;
+}
+.photo-gallery img {
+    width: 90px;  /* Adjust width for passport size */
+    height: 120px; /* Adjust height for passport size */
+    border-radius: 10px; /* Keep rounded corners */
+    object-fit: cover; /* Ensures image fills the space without distortion */
+    transition: 0.4s;
+}
+.photo-gallery img:hover {
+    transform: scale(1.1);
+}
+
+/* Hidden Class */
+.hidden {
+    display: none;
+}
+
+/* Confetti Canvas */
+.confetti {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.8); }
+    to { opacity: 1; transform: scale(1); }
+}
